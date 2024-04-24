@@ -45,13 +45,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_publicXmlKey: 
-  m_privateXmlKey: 
   m_onPublicXmlLoaded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8556290411489527073}
+        m_TargetAssemblyTypeName: GenerateAndStoreKeyPairInUnityMono, be.eloistree.generatestorersakey
+        m_MethodName: DebugLogPublicKey
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   m_onPrivateXmlLoaded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8556290411489527073}
+        m_TargetAssemblyTypeName: GenerateAndStoreKeyPairInUnityMono, be.eloistree.generatestorersakey
+        m_MethodName: DebugLogPrivateKey
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   m_onKeyPairLoaded:
     m_PersistentCalls:
       m_Calls: []
@@ -67,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7269104800607520580}
   m_Layer: 0
-  m_Name: Mirror Server Prefab
+  m_Name: Mirror Network Manager Server Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

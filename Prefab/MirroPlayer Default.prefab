@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 897184729387425978}
   - component: {fileID: 897184729387425977}
   - component: {fileID: 8524195983984324808}
+  - component: {fileID: 6721237021479118393}
   m_Layer: 0
-  m_Name: IMMO Player MMono
+  m_Name: MirroPlayer Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +70,32 @@ MonoBehaviour:
     type: 3}
   m_playerNumber: 0
   m_handshakeState: 0
+  m_handShakeAsEnum: 0
   m_playerPublicRsaKey: 
-  m_playerColor:
-    serializedVersion: 2
-    rgba: 4294967295
+  m_guidSendToClientFromServer: 
+--- !u!114 &6721237021479118393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897184729387425976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c573da562be964d8561f20226e16d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  m_subfolderMirrorRsaStorage: MirrorKeyPair
+  m_messageToSign: 
+  m_signedMessage: 
+  m_client_publicKeySent: 
+  m_client_privateKey: 
+  m_client_messageSignedB64: 
+  m_server_publicKeyReceived: 
+  m_server_guidSent: 
+  m_server_guidSentAsByte: 
+  m_server_b64SignedMessage: 
+  m_isHandshakeEstablished: 0

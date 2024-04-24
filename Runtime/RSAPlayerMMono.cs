@@ -1,15 +1,14 @@
 using Mirror;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-    public enum EnumRsaHankshake: byte {None, IsGuest, SaidHello, SentHandshakeGUID, ReceivedHandskaheGUID, HandhshakeReceivedIsWrong, HandshakeIsSigned }
-    public class RSAPlayerMMono : NetworkBehaviour
+public class RSAPlayerMMono : NetworkBehaviour
     {
         // Events that the PlayerUI will subscribe to
         public event System.Action<byte> OnPlayerNumberChanged;
         public event System.Action<Color32> OnPlayerColorChanged;
-    public event System.Action<byte> OnPlayerHandshakeStateChanged;
-    public event System.Action<string> OnPlayePublicRsaKeyChanged;
+        public event System.Action<byte> OnPlayerHandshakeStateChanged;
+        public event System.Action<string> OnPlayePublicRsaKeyChanged;
 
     // Players List to manage playerNumber
     static readonly List<RSAPlayerMMono> playersList = new List<RSAPlayerMMono>();
@@ -31,15 +30,12 @@ using UnityEngine;
 
         [SyncVar(hook = nameof(PlayerHandshakeStateChanged))]
         public byte m_handshakeState;
+        public EnumMirrorRsaHankshake m_handShakeAsEnum;
 
-        [SyncVar(hook = nameof(PlayerPublicRsaKeyChanged))]
+    [SyncVar(hook = nameof(PlayerPublicRsaKeyChanged))]
 
         public string m_playerPublicRsaKey = "";
-        /// <summary>
-        /// Random color for the playerData text, assigned in OnStartServer
-        /// </summary>
-        [SyncVar(hook = nameof(PlayerColorChanged))]
-        public Color32 m_playerColor = Color.white;
+      
 
 
     // This is called by the hook of playerNumber SyncVar above
@@ -52,15 +48,11 @@ using UnityEngine;
         OnPlayePublicRsaKeyChanged?.Invoke(newRsaKey);
     }
 
-    // This is called by the hook of playerColor SyncVar above
-    void PlayerColorChanged(Color32 _, Color32 newPlayerColor)
-        {
-            OnPlayerColorChanged?.Invoke(newPlayerColor);
-        }
         // This is called by the hook of playerNumber SyncVar above
         void PlayerHandshakeStateChanged(byte _, byte newPlayerNumber)
         {
             OnPlayerNumberChanged?.Invoke(newPlayerNumber);
+            m_handShakeAsEnum = (EnumMirrorRsaHankshake)newPlayerNumber;
         }
 
     #endregion
@@ -78,9 +70,8 @@ using UnityEngine;
 
             playersList.Add(this);
 
-            m_playerColor = Random.ColorHSV(0f, 1f, 0.9f, 0.9f, 1f, 1f);
 
-            m_handshakeState = (byte)EnumRsaHankshake.IsGuest;
+            m_handshakeState = (byte)EnumMirrorRsaHankshake.IsGuest;
 
             InvokeRepeating(nameof(UpdateData), 1, 1);
              m_playerPublicRsaKey = "";
@@ -142,12 +133,14 @@ using UnityEngine;
             //OnPlayerDataChanged = playerUI.OnPlayerDataChanged;
 
             // Invoke all event handlers with the initial data from spawn payload
-            OnPlayerNumberChanged.Invoke(m_playerNumber);
-            OnPlayerColorChanged.Invoke(m_playerColor);
-            OnPlayerHandshakeStateChanged.Invoke((byte)m_handshakeState);
-            OnPlayePublicRsaKeyChanged.Invoke(m_playerPublicRsaKey);
-            //  OnPlayerDataChanged.Invoke(playerData);
+            OnPlayerNumberChanged?.Invoke(m_playerNumber);
+            OnPlayerHandshakeStateChanged?.Invoke((byte)m_handshakeState);
+            OnPlayePublicRsaKeyChanged?.Invoke(m_playerPublicRsaKey);
+        //  OnPlayerDataChanged.Invoke(playerData);
+
+        
         }
+        public string m_guidSendToClientFromServer;
 
         /// <summary>
         /// Called when the local player object has been set up.

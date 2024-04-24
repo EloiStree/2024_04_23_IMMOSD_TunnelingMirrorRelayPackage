@@ -2,7 +2,8 @@
     "name": "be.eloistree.immomemoryfilemirrorrelayrsa",
     "rootNamespace": "",
     "references": [
-        "Mirror"
+        "Mirror",
+        "be.eloistree.generatestorersakey"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
