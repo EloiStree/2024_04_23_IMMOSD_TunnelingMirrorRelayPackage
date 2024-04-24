@@ -1,0 +1,23 @@
+
+{                                                                                
+  "name": "be.eloistree.immomemoryfilemirrorrelayrsa",                              
+  "displayName": "IMMO Memory File Mirror Relay RSA",                        
+  "version": "0.0.1",                         
+  "unity": "2018.1",                             
+  "unityRelease": "",                             
+  "description": "Construction of a Mirror system to boardcast big byte array from a source to boardcaster with a liste of allow source et allow listener using RSA Key Pair",                         
+  "keywords": ["Script","Tool"],                       
+  "dependencies":{},     
+  "relatedPackages":{},     
+  "samples" : [],     
+  "author" : {
+"name":"",
+"mail":"",
+"url":""},     
+  "repository":{
+"type":"Git",
+"url":"https://github.com/EloiStree/2024_04_23_IMMOSD_TunnelingMirrorRelayPackage.git",
+"footprint":"",
+"revision":""},     
+  "category": "Script"                   
+} 

@@ -1,0 +1,16 @@
+
+{                                                                   
+            "name": "be.eloistree.immomemoryfilemirrorrelayrsaEditor",          
+    "references": ["be.eloistree.immomemoryfilemirrorrelayrsa"
+],                                                              
+    "optionalUnityReferences": [],                                  
+    "includePlatforms": [                                           
+        "Editor"                                                    
+    ],                                                              
+    "excludePlatforms": [],                                         
+    "allowUnsafeCode": false,                                       
+    "overrideReferences": false,                                    
+    "precompiledReferences": [],                                    
+    "autoReferenced": true,                                         
+    "defineConstraints": []                                         
+}                                                                   

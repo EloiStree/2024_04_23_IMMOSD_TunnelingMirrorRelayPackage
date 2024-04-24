@@ -180,7 +180,7 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 249891960}
-  networkAddress: ' 81.240.94.97'
+  networkAddress: 81.240.94.97
   maxConnections: 1000
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 300
@@ -507,6 +507,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &535364816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 535364818}
+  - component: {fileID: 535364817}
+  m_Layer: 0
+  m_Name: Giti
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &535364817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535364816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b019678cc98b72b4ca64e5262c0cb2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetFolder: Z:/W/2024_04_23_IMMOSD_TunnelingMirrorRelay/Assets
+  m_folderGitIgnore: []
+  m_folderGit:
+  - Z:/W/2024_04_23_IMMOSD_TunnelingMirrorRelay/Assets\2024_04_23_IMMOSD_TunnelingMirrorRelayPackage\.git
+--- !u!4 &535364818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535364816}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &864730912
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,3 +1033,4 @@ SceneRoots:
   - {fileID: 1356257343}
   - {fileID: 1206283130}
   - {fileID: 1450294525}
+  - {fileID: 535364818}
