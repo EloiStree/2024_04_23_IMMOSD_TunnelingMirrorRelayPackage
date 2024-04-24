@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3747041841631341566}
   - component: {fileID: 5403486371001571186}
   m_Layer: 0
-  m_Name: NetworkManager
+  m_Name: NetworkManager Rsa Network
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 300
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 897184729387425976, guid: 1a73d6c1b9463e141bc828d543bae8b6,
+  playerPrefab: {fileID: 897184729387425976, guid: 848379b7860958440b7c66236c04f492,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 1
