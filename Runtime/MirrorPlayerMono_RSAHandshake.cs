@@ -25,13 +25,15 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
 
     [SyncVar]
     public bool m_isHandshakeEstablished;
-   
+
 
     public override void OnStartLocalPlayer()
     {
+        if (!isLocalPlayer) return;
         GenerateAndReadKeyPairInPermaSubfolder.GetOrCreatePrivatePublicRsaKey(m_subfolderMirrorRsaStorage,
             out  m_client_privateKey, out m_client_publicKeySent, false);
         CmdSayHelloToServer(m_client_publicKeySent);
+        Debug.Log("OnStartLocalPlayer");
     }
 
 
@@ -43,12 +45,14 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
         m_server_guidSent = Guid.NewGuid().ToString();
         m_server_guidSentAsByte = Encoding.UTF8.GetBytes(m_server_guidSent);
         RpcMessageToSign(m_server_guidSent);
+        Debug.Log("CmdSayHelloToServer");
     }
 
     [ClientRpc]
     public void RpcMessageToSign(string messageToSign)
     {
-        
+
+        if (!isLocalPlayer) return;
         m_messageToSign = messageToSign;
         byte[] messageAsByte = Encoding.UTF8.GetBytes(messageToSign);
         byte[] signed = KeyPairRsaHolderToSignMessageUtility.SignData(messageAsByte, m_client_privateKey);
@@ -56,6 +60,7 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
         m_client_messageSignedB64 = Convert.ToBase64String(signed);
 
         CmdPushSignedMessage(m_client_messageSignedB64);
+        Debug.Log("RpcMessageToSign:"+messageToSign);
     }
 
     [Command]
@@ -64,6 +69,7 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
         m_server_b64SignedMessage = signMessageAsB64;
         byte[] signedbyte = Convert.FromBase64String(signMessageAsB64);
         m_isHandshakeEstablished= KeyPairRsaHolderToSignMessageUtility.VerifySignature(m_server_guidSentAsByte, signedbyte, m_server_publicKeyReceived);
+        Debug.Log("CmdPushSignedMessage:" + signMessageAsB64);
     }
 }
 
