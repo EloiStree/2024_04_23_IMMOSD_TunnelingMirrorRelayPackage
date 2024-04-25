@@ -28,9 +28,6 @@ public class RSAPlayerMMono : NetworkBehaviour
         [SyncVar(hook = nameof(PlayerNumberChanged))]
         public byte m_playerNumber = 0;
 
-        [SyncVar(hook = nameof(PlayerHandshakeStateChanged))]
-        public byte m_handshakeState;
-        public EnumMirrorRsaHankshake m_handShakeAsEnum;
 
     [SyncVar(hook = nameof(PlayerPublicRsaKeyChanged))]
 
@@ -49,11 +46,7 @@ public class RSAPlayerMMono : NetworkBehaviour
     }
 
         // This is called by the hook of playerNumber SyncVar above
-        void PlayerHandshakeStateChanged(byte _, byte newPlayerNumber)
-        {
-            OnPlayerNumberChanged?.Invoke(newPlayerNumber);
-            m_handShakeAsEnum = (EnumMirrorRsaHankshake)newPlayerNumber;
-        }
+        
 
     #endregion
 
@@ -71,7 +64,6 @@ public class RSAPlayerMMono : NetworkBehaviour
             playersList.Add(this);
 
 
-            m_handshakeState = (byte)EnumMirrorRsaHankshake.IsGuest;
 
             InvokeRepeating(nameof(UpdateData), 1, 1);
              m_playerPublicRsaKey = "";
@@ -134,7 +126,6 @@ public class RSAPlayerMMono : NetworkBehaviour
 
             // Invoke all event handlers with the initial data from spawn payload
             OnPlayerNumberChanged?.Invoke(m_playerNumber);
-            OnPlayerHandshakeStateChanged?.Invoke((byte)m_handshakeState);
             OnPlayePublicRsaKeyChanged?.Invoke(m_playerPublicRsaKey);
         //  OnPlayerDataChanged.Invoke(playerData);
 

@@ -4,12 +4,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
-
 public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
 {
+    [SyncVar(hook = nameof(PlayerHandshakeStateChanged))]
+    public byte m_handshakeState;
+    public EnumMirrorRsaHankshakeServerSide m_handShakeAsEnum;
+
+
+    public event System.Action<EnumMirrorRsaHankshakeServerSide> OnPlayerHandshakeStateChanged;
+
     public string m_subfolderMirrorRsaStorage = "MirrorKeyPair";
     public string m_messageToSign;
-    public string m_signedMessage;
 
     [Header("Client")]
     public string m_client_publicKeySent;
@@ -25,6 +30,12 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
 
     [SyncVar]
     public bool m_isHandshakeEstablished;
+
+
+    public override void OnStartServer()
+    {
+        m_handshakeState = (byte)EnumMirrorRsaHankshakeServerSide.IsGuest;
+    }
 
 
     public override void OnStartLocalPlayer()
@@ -70,6 +81,12 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
         byte[] signedbyte = Convert.FromBase64String(signMessageAsB64);
         m_isHandshakeEstablished= KeyPairRsaHolderToSignMessageUtility.VerifySignature(m_server_guidSentAsByte, signedbyte, m_server_publicKeyReceived);
         Debug.Log("CmdPushSignedMessage:" + signMessageAsB64);
+    }
+
+    void PlayerHandshakeStateChanged(byte _, byte handShakeState)
+    {
+        m_handShakeAsEnum = (EnumMirrorRsaHankshakeServerSide)handShakeState;
+        OnPlayerHandshakeStateChanged?.Invoke(m_handShakeAsEnum);
     }
 }
 
