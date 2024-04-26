@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Events;
+
 public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
 {
     [SyncVar(hook = nameof(PlayerHandshakeStateChanged))]
@@ -30,6 +32,9 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
 
     [SyncVar]
     public bool m_isHandshakeEstablished;
+
+    public UnityEvent m_onRsaHandshakeValidatedClientEvent;
+    public UnityEvent m_onRsaHandshakeValidatedServerEvent;
 
     public bool IsPublicKeyValide() { return m_handShakeAsEnum == EnumMirrorRsaHankshakeServerSide.HandshakeIsSignedAndValide; }
 
@@ -88,7 +93,7 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
         if (m_isHandshakeEstablished) { 
             m_handshakeState = (byte)EnumMirrorRsaHankshakeServerSide. HandshakeIsSignedAndValide;
             Dictionary_MirrorPlayerMono_RSAHandshake.Set(this);
-
+            m_onRsaHandshakeValidatedServerEvent.Invoke();
 
         }
         else
@@ -101,6 +106,8 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
     {
         m_handShakeAsEnum = (EnumMirrorRsaHankshakeServerSide)handShakeState;
         OnPlayerHandshakeStateChanged?.Invoke(m_handShakeAsEnum);
+        if(isLocalPlayer)
+            m_onRsaHandshakeValidatedClientEvent.Invoke();
     }
 
     public string GetPublicKey()
