@@ -69,13 +69,10 @@ public class DateTimeNTP
 
         TimeSpan timeSpan = TimeSpan.FromTicks((long)milliseconds * TimeSpan.TicksPerMillisecond);
 
-        DateTime dateTime = new DateTime(1900, 1, 1);
+        DateTime dateTime = new DateTime(1900, 1, 1).ToUniversalTime();
         dateTime += timeSpan;
 
-        TimeSpan offsetAmount = TimeZone.CurrentTimeZone.GetUtcOffset(dateTime);
-        DateTime networkDateTime = (dateTime + offsetAmount);
-
-        return networkDateTime;
+        return dateTime;
     }
 
 
