@@ -15,7 +15,7 @@ public class DateTimeNTPMono: MonoBehaviour
 
     public DateTime GetAdjustedTime()
     {
-        return DateTime.UtcNow.ToUniversalTime().AddSeconds( m_differencePcNtpMilliseconds);
+        return DateTime.UtcNow.AddSeconds( m_differencePcNtpMilliseconds);
     }
 
     private void Awake()
@@ -23,8 +23,8 @@ public class DateTimeNTPMono: MonoBehaviour
 
     [ContextMenu("Refresh")]
     public void Refresh() { 
-        m_currentTimeOnPcDate = DateTime.UtcNow.ToUniversalTime();
-        m_currentTimeOnNtpDate = DateTimeNTP.GetNetworkTime().ToUniversalTime();
+        m_currentTimeOnPcDate = DateTime.UtcNow;
+        m_currentTimeOnNtpDate = DateTimeNTP.GetNetworkTime();
         m_currentTimeOnPc = m_currentTimeOnPcDate.ToString();
         m_currentTimeOnNtp = m_currentTimeOnNtpDate.ToString();
         m_currentTimeOnPcTick =m_currentTimeOnPcDate.Ticks ;

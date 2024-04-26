@@ -55,7 +55,7 @@ public class DateTimeNTP
         //**UTC** time
         var networkDateTime = (new DateTime(1900, 1, 1, 0, 0, 0, DateTimeKind.Utc)).AddMilliseconds((long)milliseconds);
 
-        return networkDateTime.ToUniversalTime();
+        return networkDateTime;
     }
 
     // stackoverflow.com/a/3294698/162671
