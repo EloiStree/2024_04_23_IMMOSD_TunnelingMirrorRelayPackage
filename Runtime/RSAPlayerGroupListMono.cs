@@ -16,6 +16,13 @@ public class RSAPlayerGroupListMono : MonoBehaviour
         m_data.RemoveDouble();
     }
 
+
+
+    public void SetOrAdd(string publicXmlRSa)
+    {
+        m_data.SetOrAdd(publicXmlRSa, false);
+    }
+ 
     public void SetOrAdd(string publicXmlRSa, bool checkForDouble)
     {
         m_data.SetOrAdd(publicXmlRSa, checkForDouble);

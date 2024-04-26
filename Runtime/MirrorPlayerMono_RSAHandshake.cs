@@ -26,15 +26,17 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
     public string m_server_guidSent;
     public byte[] m_server_guidSentAsByte;
     public string m_server_b64SignedMessage;
-
+    
 
     [SyncVar]
     public bool m_isHandshakeEstablished;
 
+    public bool IsPublicKeyValide() { return m_handShakeAsEnum == EnumMirrorRsaHankshakeServerSide.HandshakeIsSignedAndValide; }
+
 
     public override void OnStartServer()
     {
-        m_handshakeState = (byte)EnumMirrorRsaHankshakeServerSide.IsGuest;
+        m_handshakeState = (byte) EnumMirrorRsaHankshakeServerSide.UncheckStartConnection;
     }
 
 
@@ -52,10 +54,12 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
     public void CmdSayHelloToServer(string publicKeyRSA)
     {
 
+        m_handshakeState = (byte)EnumMirrorRsaHankshakeServerSide.SaidHello;
         m_server_publicKeyReceived = publicKeyRSA;
         m_server_guidSent = Guid.NewGuid().ToString();
         m_server_guidSentAsByte = Encoding.UTF8.GetBytes(m_server_guidSent);
         RpcMessageToSign(m_server_guidSent);
+        m_handshakeState = (byte)EnumMirrorRsaHankshakeServerSide.SentHandshakeGUID;
         Debug.Log("CmdSayHelloToServer");
     }
 
@@ -77,16 +81,37 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
     [Command]
     public void CmdPushSignedMessage(string signMessageAsB64)
     {
+        m_handshakeState = (byte)EnumMirrorRsaHankshakeServerSide.ReceivedHandshakeGUID;
         m_server_b64SignedMessage = signMessageAsB64;
         byte[] signedbyte = Convert.FromBase64String(signMessageAsB64);
         m_isHandshakeEstablished= KeyPairRsaHolderToSignMessageUtility.VerifySignature(m_server_guidSentAsByte, signedbyte, m_server_publicKeyReceived);
+        if (m_isHandshakeEstablished) { 
+            m_handshakeState = (byte)EnumMirrorRsaHankshakeServerSide. HandshakeIsSignedAndValide;
+            Dictionary_MirrorPlayerMono_RSAHandshake.Set(this);
+
+
+        }
+        else
+            m_handshakeState = (byte)EnumMirrorRsaHankshakeServerSide.HandshakeReceivedIsWrong;
         Debug.Log("CmdPushSignedMessage:" + signMessageAsB64);
+
     }
 
     void PlayerHandshakeStateChanged(byte _, byte handShakeState)
     {
         m_handShakeAsEnum = (EnumMirrorRsaHankshakeServerSide)handShakeState;
         OnPlayerHandshakeStateChanged?.Invoke(m_handShakeAsEnum);
+    }
+
+    public string GetPublicKey()
+    {
+        if (isLocalPlayer) return m_client_publicKeySent;
+        else   return m_server_publicKeyReceived;
+    }
+    public override void OnStopServer()
+    {
+        Dictionary_MirrorPlayerMono_RSAHandshake.Remove(this);
+
     }
 }
 

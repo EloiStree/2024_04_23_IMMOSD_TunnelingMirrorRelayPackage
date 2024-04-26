@@ -1,2 +1,2 @@
-﻿public enum EnumMirrorRsaHankshakeServerSide: byte {None, IsGuest, SaidHello, SentHandshakeGUID, ReceivedHandskaheGUID, HandhshakeReceivedIsWrong, HandshakeIsSigned }
+﻿public enum EnumMirrorRsaHankshakeServerSide: byte {None, UncheckStartConnection, SaidHello, SentHandshakeGUID, ReceivedHandshakeGUID, HandshakeReceivedIsWrong, HandshakeIsSignedAndValide }
 
