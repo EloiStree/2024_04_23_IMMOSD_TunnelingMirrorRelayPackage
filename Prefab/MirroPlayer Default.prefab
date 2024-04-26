@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 897184729387425977}
   - component: {fileID: 6721237021479118393}
   - component: {fileID: 8436589840577433712}
+  - component: {fileID: 6404954322872101632}
   m_Layer: 0
   m_Name: MirroPlayer Default
   m_TagString: Untagged
@@ -80,10 +81,13 @@ MonoBehaviour:
   m_isHandshakeEstablished: 0
   m_onRsaHandshakeValidatedClientEvent:
     m_PersistentCalls:
+      m_Calls: []
+  m_onRsaHandshakeValidatedServerEvent:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8436589840577433712}
         m_TargetAssemblyTypeName: RSAPlayerTimeNTPMono, be.eloistree.immomemoryfilemirrorrelayrsa
-        m_MethodName: RefreshTiming
+        m_MethodName: RefreshTimingFromServerCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -93,9 +97,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_onRsaHandshakeValidatedServerEvent:
-    m_PersistentCalls:
-      m_Calls: []
+      - m_Target: {fileID: 6404954322872101632}
+        m_TargetAssemblyTypeName: RSAPlayerTimeOnServerNTPMono, Assembly-CSharp
+        m_MethodName: UpdateDifferenceWithServerNTPFromServerOnClient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8436589840577433712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,4 +130,29 @@ MonoBehaviour:
     m_t2_dateTimeGenerateServerSent: 0
     m_t3_dateTimeClientReceived: 0
   m_pingSentReceived: 0
+  m_pingSentReceivedSeconds: 0
   m_differenceInTick: 0
+--- !u!114 &6404954322872101632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897184729387425976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c436535f851198046b205be0b2c35aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  m_timeBetweenPcServerNtp: 0
+  m_serverPcDifference:
+    m_currentTimeOnPc: 
+    m_currentTimeOnNtp: 
+    m_currentTimeOnPcTick: 0
+    m_currentTimeOnNtpTick: 0
+    m_differencePcNtpTick: 0
+    m_differencePcNtpMilliseconds: 0
+    m_serverContacted: 0
