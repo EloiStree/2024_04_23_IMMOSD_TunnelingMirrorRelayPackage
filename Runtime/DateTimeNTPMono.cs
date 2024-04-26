@@ -39,7 +39,7 @@ public class DateTimeNTPMono: MonoBehaviour
         m_currentTimeOnPcTick =m_currentTimeOnPcDate.Ticks ;
         m_currentTimeOnNtpTick= m_currentTimeOnNtpDate.Ticks;
         m_differencePcNtpTick = m_currentTimeOnNtpTick - m_currentTimeOnPcTick;
-        m_differencePcNtpMilliseconds = m_differencePcNtpTick / TimeSpan.TicksPerMillisecond;
+        m_differencePcNtpMilliseconds = m_differencePcNtpTick /(double) TimeSpan.TicksPerMillisecond;
 
     }
 }

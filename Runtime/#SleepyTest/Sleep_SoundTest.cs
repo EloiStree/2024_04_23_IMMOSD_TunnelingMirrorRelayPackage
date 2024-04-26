@@ -13,16 +13,17 @@ public class Sleep_SoundTest : MonoBehaviour
     public UnityEvent m_onTick;
     public UnityEvent<Color> m_onTickColor;
 
-    public int m_secondModulo=4;
-    public int m_seconds;
-    public int m_previousSeconds;
+    public int m_deciSeconds=50;
+    public int m_deciseconds;
+    public int m_previousDeciSeconds;
+    public int m_currentDeciSeconds;
     void Update()
     {
-        m_seconds =(int)( (m_useNtp ? m_ntp.GetAdjustedTime().Ticks : DateTime.UtcNow.Ticks) / TimeSpan.TicksPerSecond);
-        int seconds =(int) ((m_seconds) % m_secondModulo);
-        if (seconds != m_previousSeconds) {
-            m_previousSeconds = seconds;
-            if(seconds==0)
+        m_deciseconds =(int)( (m_useNtp ? m_ntp.GetAdjustedTime().Ticks : DateTime.UtcNow.Ticks) / (TimeSpan.TicksPerSecond/10));
+         m_currentDeciSeconds = (int) ((m_deciseconds) % m_deciSeconds);
+        if (m_currentDeciSeconds != m_previousDeciSeconds) {
+            m_previousDeciSeconds = m_currentDeciSeconds;
+            if(m_currentDeciSeconds == 0)
                 Tick();
         }
     }
