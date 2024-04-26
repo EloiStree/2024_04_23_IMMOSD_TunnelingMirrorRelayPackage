@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4853719325082464201}
   - component: {fileID: 894150258594631940}
+  - component: {fileID: 7558109867787741208}
   - component: {fileID: 2854435118295289280}
   - component: {fileID: 1514037855678120381}
   - component: {fileID: 3747041841631341566}
@@ -50,6 +51,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetX: 0
   offsetY: 0
+--- !u!114 &7558109867787741208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934225648174511257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84098e2e6453dc84fba3e1a701954cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ntpServer: time.windows.com
+  m_currentTimeOnPC: 
+  m_currentTimeOnNtp: 
 --- !u!114 &2854435118295289280
 MonoBehaviour:
   m_ObjectHideFlags: 0

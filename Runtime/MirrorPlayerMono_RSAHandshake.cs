@@ -8,6 +8,8 @@ using UnityEngine.Events;
 
 public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
 {
+
+
     [SyncVar(hook = nameof(PlayerHandshakeStateChanged))]
     public byte m_handshakeState;
     public EnumMirrorRsaHankshakeServerSide m_handShakeAsEnum;

@@ -16,22 +16,41 @@ public class RSAPlayerTimeNTPMono : NetworkBehaviour
     public double m_pingSentReceived;
 
     [SyncVar]
+
+    public double m_pingSentReceivedSeconds;
+    [SyncVar]
     public long m_differenceInTick;
 
 
 
-    [ContextMenu("Refresh Timing")]
-    public void RefreshTiming()
+
+
+
+    [ContextMenu("Refresh Timing from Server")]
+    public void RefreshTimingFromServerCall()
+    {
+
+        RpcRefreshTiming();
+    }
+    [ContextMenu("Refresh Timing from Client")]
+    public void RefreshTimingFromClientCall()
+    {
+        StartExchangeNTP();
+        
+    }
+
+    [ClientRpc]
+    public void RpcRefreshTiming()
+    {
+        StartExchangeNTP();
+    }
+    public void StartExchangeNTP()
     {
         NTPLongKey timePack = new NTPLongKey();
         timePack.m_t0_dateTimeClientSent = TicksLocalMachineUTC();
         CmdPushTimeStart(timePack);
     }
 
-    private static long TicksLocalMachineUTC()
-    {
-        return DateTime.UtcNow.Ticks;
-    }
 
     [Command]
     public void CmdPushTimeStart(NTPLongKey time)
@@ -64,8 +83,13 @@ public class RSAPlayerTimeNTPMono : NetworkBehaviour
         m_differenceInTick =  
             (time.m_t3_dateTimeClientReceived - time.m_t0_dateTimeClientSent)
             - (time.m_t2_dateTimeGenerateServerSent - time.m_t1_dateTimeGenerateServerStart);
+        m_pingSentReceivedSeconds = m_differenceInTick /(double) TimeSpan.TicksPerMillisecond;
     }
 
+    private static long TicksLocalMachineUTC()
+    {
+        return DateTime.UtcNow.Ticks;
+    }
     [System.Serializable]
     public struct NTPLongKey {
         public long m_t0_dateTimeClientSent;
