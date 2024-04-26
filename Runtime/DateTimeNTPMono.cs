@@ -16,20 +16,21 @@ public class DateTimeNTPMono: MonoBehaviour
     public bool currentDateTimeUtcNTPUseSummer;
     public DateTime GetAdjustedTime()
     {
-        return DateTime.UtcNow.AddSeconds( m_differencePcNtpMilliseconds);
+        DateTime d = new DateTime(1900,1,1,0,0,0,0 ,DateTimeKind.Utc);
+        return d.AddMilliseconds( m_differencePcNtpMilliseconds);
     }
 
     private void Awake()
     {
         TimeZoneInfo timeZone = TimeZoneInfo.Local;
         currentDateTimeUtcUseSummer = timeZone.IsDaylightSavingTime(DateTime.UtcNow);
-
-        Refresh(); }
+        Refresh(); 
+    }
 
     [ContextMenu("Refresh")]
     public void Refresh() { 
         m_currentTimeOnNtpDate = DateTimeNTP.GetNetworkTime();
-        m_currentTimeOnPcDate = DateTime.UtcNow;
+        m_currentTimeOnPcDate = new DateTime(1900, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc); 
         TimeZoneInfo timeZone = TimeZoneInfo.Local;
         currentDateTimeUtcUseSummer = timeZone.IsDaylightSavingTime(m_currentTimeOnPcDate);
         currentDateTimeUtcNTPUseSummer = timeZone.IsDaylightSavingTime(m_currentTimeOnNtpDate);
