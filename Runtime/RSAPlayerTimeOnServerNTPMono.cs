@@ -31,8 +31,8 @@ public class RSAPlayerTimeOnServerNTPMono : NetworkBehaviour
             try
             {
                 m_serverContacted = false;
-                m_currentTimeOnPcDate = DateTime.UtcNow.ToUniversalTime();
-                m_currentTimeOnNtpDate = DateTimeNTP.GetNetworkTime().ToUniversalTime();
+                m_currentTimeOnPcDate = DateTime.UtcNow;
+                m_currentTimeOnNtpDate = DateTimeNTP.GetNetworkTime();
                 m_currentTimeOnPc = m_currentTimeOnPcDate.ToString();
                 m_currentTimeOnNtp = m_currentTimeOnNtpDate.ToString();
                 m_currentTimeOnPcTick = m_currentTimeOnPcDate.Ticks;
@@ -48,8 +48,7 @@ public class RSAPlayerTimeOnServerNTPMono : NetworkBehaviour
 
         public long GetCurrentTimestampTickServerNTP()
         {
-            return DateTime.UtcNow.ToUniversalTime().Ticks - m_differencePcNtpTick;
-            //return DateTime.UtcNow.ToUniversalTime().Ticks + m_differencePcNtpTick;
+            return DateTime.UtcNow.AddTicks(m_differencePcNtpTick).Ticks;
         }
     }
 
