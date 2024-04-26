@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class RSAPlayerTimeOnServerNTPMono : NetworkBehaviour
 {
 
@@ -44,6 +44,12 @@ public class RSAPlayerTimeOnServerNTPMono : NetworkBehaviour
             catch (Exception ) { 
             
             }
+        }
+
+        public long GetCurrentTimestampTickServerNTP()
+        {
+            //return DateTime.UtcNow.ToUniversalTime().Ticks - m_differencePcNtpTick;
+            return DateTime.UtcNow.ToUniversalTime().Ticks + m_differencePcNtpTick;
         }
     }
 
@@ -90,6 +96,10 @@ public class RSAPlayerTimeOnServerNTPMono : NetworkBehaviour
         m_timeBetweenPcServerNtp = differencePcNtpMilliseconds;
     }
 
+    public long GetCurrentTimestampTickServerNTP()
+    {
+        return m_serverPcDifference.GetCurrentTimestampTickServerNTP();
+    }
 }
 
     

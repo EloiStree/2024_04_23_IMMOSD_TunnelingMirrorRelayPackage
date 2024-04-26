@@ -191,104 +191,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 949207722}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 949207721}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 949207722}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateDifferenceWithServerNTP
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RefreshTimingFromServerCall
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UpdateDifferenceWithServerNTPFromServerOnClient
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RSAPlayerTimeOnServerNTPMono, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RSAPlayerTimeNTPMono, be.eloistree.immomemoryfilemirrorrelayrsa
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: RSAPlayerTimeOnServerNTPMono, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_onRsaHandshakeValidatedServerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 897184729387425976, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 949207722}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 848379b7860958440b7c66236c04f492, type: 3}
 --- !u!1 &288173824
 GameObject:
@@ -300,6 +206,8 @@ GameObject:
   m_Component:
   - component: {fileID: 288173827}
   - component: {fileID: 288173826}
+  - component: {fileID: 288173829}
+  - component: {fileID: 288173828}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -373,6 +281,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &288173828
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288173824}
+  m_Enabled: 1
+--- !u!114 &288173829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288173824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &313785339
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,48 +829,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864730912}
   m_CullTransparentMesh: 0
---- !u!1 &949207717 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 897184729387425976, guid: 848379b7860958440b7c66236c04f492,
-    type: 3}
-  m_PrefabInstance: {fileID: 84417252}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &949207721 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8436589840577433712, guid: 848379b7860958440b7c66236c04f492,
-    type: 3}
-  m_PrefabInstance: {fileID: 84417252}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949207717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f65028a0371f64f894c6f8cc3f3caa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &949207722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949207717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c436535f851198046b205be0b2c35aec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  m_timeBetweenPcServerNtp: 0
-  m_serverPcDifference:
-    m_currentTimeOnPc: 
-    m_currentTimeOnNtp: 
-    m_currentTimeOnPcTick: 0
-    m_currentTimeOnNtpTick: 0
-    m_differencePcNtpTick: 0
-    m_differencePcNtpMilliseconds: 0
-    m_serverContacted: 0
 --- !u!114 &953479403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8556290411489527073, guid: 6ae52ecf91874c844b73309150e7302d,
