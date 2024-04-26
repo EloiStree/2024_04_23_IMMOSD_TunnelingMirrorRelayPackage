@@ -13,6 +13,11 @@ public class DateTimeNTPMono: MonoBehaviour
     public DateTime m_currentTimeOnPcDate;
     public DateTime m_currentTimeOnNtpDate;
 
+    public DateTime GetAdjustedTime()
+    {
+        return DateTime.UtcNow.ToUniversalTime().AddSeconds(- m_differencePcNtpMilliseconds);
+    }
+
     private void Awake()
     { Refresh(); }
 
