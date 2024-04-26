@@ -15,7 +15,7 @@ public class DateTimeNTPMono: MonoBehaviour
 
     public DateTime GetAdjustedTime()
     {
-        return DateTime.UtcNow.ToUniversalTime().AddSeconds(- m_differencePcNtpMilliseconds);
+        return DateTime.UtcNow.ToUniversalTime().AddSeconds( m_differencePcNtpMilliseconds);
     }
 
     private void Awake()
