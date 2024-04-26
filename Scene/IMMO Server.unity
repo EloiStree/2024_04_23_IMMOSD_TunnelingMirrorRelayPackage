@@ -136,11 +136,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MirroPlayer Default
       objectReference: {fileID: 0}
-    - target: {fileID: 897184729387425976, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 897184729387425977, guid: 848379b7860958440b7c66236c04f492,
         type: 3}
       propertyPath: sceneId
@@ -196,8 +191,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8524195983984324808, guid: 848379b7860958440b7c66236c04f492, type: 3}
+    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
+        type: 3}
+      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
+        type: 3}
+      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
+        type: 3}
+      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 949207721}
+    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
+        type: 3}
+      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
+        type: 3}
+      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RefreshTiming
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
+        type: 3}
+      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RSAPlayerTimeNTPMono, be.eloistree.immomemoryfilemirrorrelayrsa
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721237021479118393, guid: 848379b7860958440b7c66236c04f492,
+        type: 3}
+      propertyPath: m_onRsaHandshakeValidatedClientEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -781,6 +810,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864730912}
   m_CullTransparentMesh: 0
+--- !u!114 &949207721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8436589840577433712, guid: 848379b7860958440b7c66236c04f492,
+    type: 3}
+  m_PrefabInstance: {fileID: 84417252}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f65028a0371f64f894c6f8cc3f3caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &953479403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8556290411489527073, guid: 6ae52ecf91874c844b73309150e7302d,

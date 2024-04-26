@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 897184729387425978}
   - component: {fileID: 897184729387425977}
   - component: {fileID: 6721237021479118393}
+  - component: {fileID: 8436589840577433712}
   m_Layer: 0
   m_Name: MirroPlayer Default
   m_TagString: Untagged
@@ -77,3 +78,43 @@ MonoBehaviour:
   m_server_guidSentAsByte: 
   m_server_b64SignedMessage: 
   m_isHandshakeEstablished: 0
+  m_onRsaHandshakeValidatedClientEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8436589840577433712}
+        m_TargetAssemblyTypeName: RSAPlayerTimeNTPMono, be.eloistree.immomemoryfilemirrorrelayrsa
+        m_MethodName: RefreshTiming
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onRsaHandshakeValidatedServerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8436589840577433712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897184729387425976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f65028a0371f64f894c6f8cc3f3caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  m_timeDifference:
+    m_t0_dateTimeClientSent: 0
+    m_t1_dateTimeGenerateServerStart: 0
+    m_t2_dateTimeGenerateServerSent: 0
+    m_t3_dateTimeClientReceived: 0
+  m_pingSentReceived: 0
+  m_differenceInTick: 0
