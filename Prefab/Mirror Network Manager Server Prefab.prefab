@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ntp: {fileID: 8439630773169433351}
-  m_useNtp: 0
+  m_useNtp: 1
   m_onTick:
     m_PersistentCalls:
       m_Calls:
@@ -65,7 +65,8 @@ MonoBehaviour:
   m_onTickColor:
     m_PersistentCalls:
       m_Calls: []
-  m_secondModulo: 0
+  m_secondModulo: 5
+  m_seconds: 0
   m_previousSeconds: 0
 --- !u!82 &8562470613172205990
 AudioSource:
