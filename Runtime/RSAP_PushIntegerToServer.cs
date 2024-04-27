@@ -9,7 +9,7 @@ public class RSAP_PushIntegerToServer : NetworkBehaviour
     public static RSAP_PushIntegerToServer GetInstanceLocalPlayer() { return m_instance; }
 
     public int m_lastReceivedFromClient;
-    void Awake()
+    void Start()
     {
 
         bool isLocalOrServer = this.isServer || this.isLocalPlayer;

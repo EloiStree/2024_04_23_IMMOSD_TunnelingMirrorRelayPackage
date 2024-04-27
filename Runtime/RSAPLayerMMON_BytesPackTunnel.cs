@@ -24,7 +24,7 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
     public bool m_isTheHost;
 
 
-    private void Awake()
+    private void Start()
     {
         m_isTheHost = this.isLocalPlayer && base.isServer;
         if (m_isTheHost)
