@@ -194,11 +194,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 897184729387425976, guid: 848379b7860958440b7c66236c04f492,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2048390781}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 848379b7860958440b7c66236c04f492, type: 3}
 --- !u!1 &313785339
 GameObject:
@@ -1106,39 +1102,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2048390774 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 897184729387425976, guid: 848379b7860958440b7c66236c04f492,
-    type: 3}
-  m_PrefabInstance: {fileID: 84417252}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2048390781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048390774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fa6f68965fc0949ab1785d3c6a901e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  m_onGuestKickOut:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onWarningKickOut:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onTemporalBan:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onPermaBan:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &1054387683712408742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1343,7 +1306,13 @@ PrefabInstance:
       propertyPath: sceneId
       value: 715111166
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8325050187158897997, guid: 8d1ac69ebe0f6644cbb81bb45d95837b,
+        type: 3}
+      propertyPath: spawnPrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9172204152723189136, guid: 8d1ac69ebe0f6644cbb81bb45d95837b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -1,4 +1,5 @@
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,29 +17,61 @@ public class RSAPlayerMMono_KickOrBanNotice : NetworkBehaviour
     [Tooltip("Player/User did something wrong and is in the ban list from now on")]
     public UnityEvent<string> m_onPermaBan;
 
+
+
+    [ContextMenu("Push Random Message")]
+    public void PushRandomMessageFromServer() {
+
+        if (!isServer) {
+            Debug.Log("Not server", this.gameObject);
+            return;
+        }
+        int value=  UnityEngine.Random.Range(0, 5);
+        string msg = Guid.NewGuid().ToString();
+        switch (value) {
+               case 0: RpcNoticeInComingKickOutOutOfSpace(msg);              return;
+               case 1: RpcNoticeInComingKickOutWarning(msg);                 return;
+               case 2: RpcNoticeInComingBanTime(msg,0 ,0,"-");               return;
+               case 3: RpcNoticeInComingPermaBan("InsertRsaKey", msg, "-");  return;
+               case 4: RpcNoticeConnectionRefuse("InsertRsaKey", msg, "-"); return;
+            default: break;
+        }
+    }
+
+    public bool m_useDebugLog;
     [ClientRpc]
     void RpcNoticeInComingKickOutOutOfSpace(string message)
     {
 
+        if (m_useDebugLog)
+            Debug.Log("Kick out for space: " + message);
     }
     [ClientRpc]
     void RpcNoticeInComingKickOutWarning(string message)
     {
 
+        if (m_useDebugLog)
+            Debug.Log("Kick out warning: " + message);
     }
     [ClientRpc]
     void RpcNoticeInComingBanTime(string message, long serverDateTimeBanNTPFrom, long serverDateTimeBanNTPTo, string guidBanLogId)
     {
 
+        if (m_useDebugLog)
+            Debug.Log("Temporal Ban: " + message);
     }
     [ClientRpc]
     void RpcNoticeInComingPermaBan(string rsaPermaBanned, string message, string guidBanLogId)
     {
 
+        if (m_useDebugLog)
+            Debug.Log("Perma ban: " + message);
     }
     [ClientRpc]
     void RpcNoticeConnectionRefuse(string rsaPermaBanned, string message, string guidBanLogId)
     {
+        if (m_useDebugLog)
+            Debug.Log("connection refused: " + message);
 
     }
 }
