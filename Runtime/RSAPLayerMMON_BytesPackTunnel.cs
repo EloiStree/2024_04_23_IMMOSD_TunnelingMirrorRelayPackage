@@ -19,43 +19,19 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
 
     public bool m_useRandomPush;
 
-  
     [SyncVar]
     public bool m_isTheHost;
-
-
-    [ClientRpc]
-    public void RpcRemoveScript()
-    {
-        Debug.Log("call Destroy");
-        DestroyImmediate(this);
-    }
-    [ClientRpc]
-    public void RpcNotifyAsServer()
-    {
-        m_hostInstance = this;
-    }
 
     public override void OnStartServer()
     {
         m_isTheHost = base.isServer && base.isOwned && base.isClient ;
-        if (m_isTheHost)
-        {
-
-            m_hostInstance = this;
-            RpcNotifyAsServer();
-        }
-        else {
-            RpcRemoveScript();
-
-            DestroyImmediate(this);
-        }
+     
        
     }
-    public override void OnStartLocalPlayer()
+    public void Update()
     {
-        if (!m_isTheHost) { 
-            Debug.Log("call DestroDyDDD");
+        if (!m_isTheHost)
+        {
             DestroyImmediate(this);
         }
     }
