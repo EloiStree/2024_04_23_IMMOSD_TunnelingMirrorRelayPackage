@@ -791,6 +791,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1386467244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7350126914658695046, guid: 6ae52ecf91874c844b73309150e7302d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7684567835932286216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1386467251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8439630773169433351, guid: 6ae52ecf91874c844b73309150e7302d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7684567835932286216}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386467244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84098e2e6453dc84fba3e1a701954cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1386467252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386467244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7455dc4b132bee4e9f7f1a073999db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_keyboard: 32
+  m_down:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1386467251}
+        m_TargetAssemblyTypeName: DateTimeNTPMono, be.eloistree.immomemoryfilemirrorrelayrsa
+        m_MethodName: Refresh
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_up:
+    m_PersistentCalls:
+      m_Calls: []
+  m_useUpdate: 0
+  m_update:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1712119860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,11 +1221,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3234107913786019980, guid: 6ae52ecf91874c844b73309150e7302d,
-        type: 3}
-      propertyPath: m_secondModulo
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7269104800607520580, guid: 6ae52ecf91874c844b73309150e7302d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1223,6 +1271,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8439630773169433351, guid: 6ae52ecf91874c844b73309150e7302d,
+        type: 3}
+      propertyPath: m_ntpServer
+      value: 0.be.pool.ntp.org
+      objectReference: {fileID: 0}
     - target: {fileID: 9058508966216854014, guid: 6ae52ecf91874c844b73309150e7302d,
         type: 3}
       propertyPath: m_Name
@@ -1231,7 +1284,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7350126914658695046, guid: 6ae52ecf91874c844b73309150e7302d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1386467252}
   m_SourcePrefab: {fileID: 100100000, guid: 6ae52ecf91874c844b73309150e7302d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
