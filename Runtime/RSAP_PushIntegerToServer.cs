@@ -2,12 +2,15 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class RSAP_PushIntegerToServer : NetworkBehaviour
 {
      static RSAP_PushIntegerToServer m_instance;
     public static RSAP_PushIntegerToServer GetInstanceLocalPlayer() { return m_instance; }
 
+    public RSAP_RSAHandshake m_handshakeLinked;
     public int m_lastReceivedFromClient;
     void Start()
     {
@@ -38,7 +41,11 @@ public class RSAP_PushIntegerToServer : NetworkBehaviour
     void CmdPushIntegerToServer(int value)
     {
         m_lastReceivedFromClient = value;
-
+       var i = ListenToGlobalIntegerRsaMirrorInstanceMono.GetInstance();
+        if (i != null)
+        { 
+            i.PushIntegerRequest(value, m_handshakeLinked);
+        }
     }
     
 }

@@ -11,9 +11,37 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
     static RSAPLayerMMON_BytesPackTunnel m_hostInstance;
     public static RSAPLayerMMON_BytesPackTunnel GetHostInstance() { return m_hostInstance; }
 
+    public static void AddListener(Action<string, byte[]> receivedChunk)
+    {
+        m_onPackageReceived += receivedChunk;
+    }
+
+    public static void RemoveListener(Action<string, byte[]> receivedChunk)
+    {
+        m_onPackageReceived -= receivedChunk;
+    }
+
+    public static Action<RSAPLayerMMON_BytesPackTunnel> m_onInstanceSet;
+
+    public static Action<string, byte[]> m_onPackageReceived;
+    private static void SetInstanceAndNotifyListener(RSAPLayerMMON_BytesPackTunnel tunnel)
+    {
+        m_hostInstance = tunnel;
+        if(m_onInstanceSet!=null)
+            m_onInstanceSet.Invoke(tunnel);
+
+    }
+    private static void PushPacktoListeners(string arrayName, byte[] pack)
+    {
+        if (m_onPackageReceived != null)
+        {
+            m_onPackageReceived.Invoke(arrayName, pack);
+        }
+    }
+
+
+
     public string   m_arrayName;
-    public int      m_lastStartOffset;
-    public int      m_lenghtOffset;
     public byte[]   m_pack;
 
 
@@ -34,7 +62,14 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
         {
             DestroyImmediate(this);
         }
+        else {
+
+            if (m_hostInstance == null) { SetInstanceAndNotifyListener(this); }
+            
+        }
     }
+
+   
 
     private void Start()
     {
@@ -48,68 +83,61 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
             return;
 
         m_arrayName = Guid.NewGuid().ToString();
-        m_lastStartOffset = UnityEngine.Random.Range(0, 9999);
-        m_lenghtOffset = UnityEngine.Random.Range(0, 9999);
         m_pack = Encoding.UTF8.GetBytes(m_arrayName);
         if (isServer)
-            PushBytesServerToClient();
-        else PushBytesSoureClientToServer();
+            PushBytesServerToClients();
+        else PushBytesClientSourceToServer();
     }
 
     [ContextMenu("PushBytesSoureClientToServer")]
-    public void PushBytesSoureClientToServer()
+    public void PushBytesClientSourceToServer()
     {
-        PushBytesSoureClientToServer(m_arrayName, m_lastStartOffset, m_lenghtOffset, m_pack);
+        PushBytesClientSourceToServer(m_arrayName, m_pack);
     }
 
-    public void PushBytesSoureClientToServer(string arrayName, int startOffset, int lenghtOffset, byte[] pack)
+    public void PushBytesClientSourceToServer(string arrayName,  byte[] pack)
     {
 
         m_arrayName = arrayName;
-        m_lastStartOffset = startOffset;
-        m_lenghtOffset = lenghtOffset;
         m_pack = pack;
 
-        CmdPushBytesToServer(arrayName, startOffset, lenghtOffset, pack);
+        CmdPushBytesClientSourceToServer(arrayName,  pack);
     }
 
 
     [Command]
-    private void CmdPushBytesToServer(string arrayName, int startOffset, int lenghtOffset, byte[] pack)
+    private void CmdPushBytesClientSourceToServer(string arrayName,  byte[] pack)
     {
 
         m_arrayName= arrayName;
-        m_lastStartOffset= startOffset;
-        m_lenghtOffset= lenghtOffset;
         m_pack= pack;
 
-        RpcPushByteToClients(arrayName, startOffset, lenghtOffset, pack);
+        RpcPushByteToClients(arrayName, pack);
     }
 
     [ContextMenu("PushBytesServerToClient")]
-    public void PushBytesServerToClient()
+    public void PushBytesServerToClients()
     {
-        PushBytesServerToClient(m_arrayName, m_lastStartOffset, m_lenghtOffset, m_pack);
+        PushBytesServerToClients(m_arrayName, m_pack);
     }
 
-        public void PushBytesServerToClient(string arrayName, int startOffset, int lenghtOffset, byte[] pack)
+    public void PushBytesServerToClients(string arrayName, byte[] pack)
     {
 
         m_arrayName = arrayName;
-        m_lastStartOffset = startOffset;
-        m_lenghtOffset = lenghtOffset;
         m_pack = pack;
 
-        RpcPushByteToClients(arrayName, startOffset, lenghtOffset, pack);
+        RpcPushByteToClients(arrayName, pack);
     }
     [ClientRpc]
-    private void RpcPushByteToClients(string arrayName, int startOffset, int lenghtOffset, byte[] pack)
+    private void RpcPushByteToClients(string arrayName, byte[] pack)
     {
 
         m_arrayName = arrayName;
-        m_lastStartOffset = startOffset;
-        m_lenghtOffset = lenghtOffset;
         m_pack = pack;
+        PushPacktoListeners(arrayName, pack);
 
     }
+
+  
 }

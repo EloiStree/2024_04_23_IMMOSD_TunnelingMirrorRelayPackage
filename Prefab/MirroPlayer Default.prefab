@@ -130,6 +130,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  m_handshakeLinked: {fileID: 6721237021479118393}
   m_lastReceivedFromClient: 0
 --- !u!114 &8012352664807266366
 MonoBehaviour:
@@ -147,8 +148,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   m_arrayName: 
-  m_lastStartOffset: 0
-  m_lenghtOffset: 0
   m_pack: 
   m_useRandomPush: 0
   m_isTheHost: 0
