@@ -23,17 +23,23 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
     [SyncVar]
     public bool m_isTheHost;
 
-
-    private void Start()
+    public override void OnStartServer()
     {
-        m_isTheHost = this.isLocalPlayer && base.isServer;
+        m_isTheHost = this.isLocalPlayer && base.isServer && base.isOwned;
         if (m_isTheHost)
         {
             m_hostInstance = this;
         }
-        else {
+    }
+    public override void OnStartLocalPlayer()
+    {
+        if (!base.isServer)
             Destroy(this);
-        }
+      
+    }
+    private void Start()
+    {
+      
         InvokeRepeating("PushRandom", 3, 5);
     }
     [ContextMenu("PushRandom")]
