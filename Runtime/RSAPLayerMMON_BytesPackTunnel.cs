@@ -49,7 +49,7 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
 
     [SyncVar]
     public bool m_isTheHost;
-
+    public bool m_owned;
     public override void OnStartServer()
     {
         m_isTheHost = base.isServer && base.isOwned && base.isClient ;
@@ -60,6 +60,7 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
     {
         if (!m_isTheHost)
         {
+
             DestroyImmediate(this);
         }
         else {

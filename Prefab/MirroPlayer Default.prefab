@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8436589840577433712}
   - component: {fileID: 6404954322872101632}
   - component: {fileID: 624669570754316003}
+  - component: {fileID: 1607409949528096250}
   m_Layer: 0
   m_Name: MirroPlayer Default
   m_TagString: Untagged
@@ -151,6 +152,7 @@ MonoBehaviour:
   m_pack: 
   m_useRandomPush: 0
   m_isTheHost: 0
+  m_owned: 0
 --- !u!114 &8436589840577433712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +233,21 @@ MonoBehaviour:
         m_CallState: 2
   m_toExecuteNext: 0
   m_whenToExecute: 0
+--- !u!114 &1607409949528096250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897184729387425976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8151d35ebea182a4c9a066fe78df098e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!1 &8368398683688499448
 GameObject:
   m_ObjectHideFlags: 0
