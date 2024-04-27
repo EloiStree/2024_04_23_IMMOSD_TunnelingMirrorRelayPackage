@@ -1,5 +1,99 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &156417068169834320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4167055332879362340}
+  - component: {fileID: 5090980357727819901}
+  m_Layer: 0
+  m_Name: ' Auto Start Server'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4167055332879362340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156417068169834320}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4853719325082464201}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5090980357727819901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156417068169834320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd6f81ccb275e94595842dfa0356c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_networkManager: {fileID: 2854435118295289280}
+  m_useStart: 1
+  m_delay: 1
+--- !u!1 &8335597050838367304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170654333452888600}
+  - component: {fileID: 4131585505237739628}
+  m_Layer: 0
+  m_Name: ' Auto Start Client'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &170654333452888600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335597050838367304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4853719325082464201}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4131585505237739628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335597050838367304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a27bbc859e30e42ba8b79dc6796241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_networkManager: {fileID: 2854435118295289280}
+  m_useStart: 1
+  m_delay: 1
 --- !u!1 &8934225648174511257
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,7 +128,9 @@ Transform:
   m_LocalPosition: {x: -10, y: 4, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4167055332879362340}
+  - {fileID: 170654333452888600}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &894150258594631940
@@ -63,9 +159,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84098e2e6453dc84fba3e1a701954cec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ntpServer: time.windows.com
-  m_currentTimeOnPC: 
+  m_currentTimeOnPc: 
   m_currentTimeOnNtp: 
+  m_currentTimeOnPcTick: 0
+  m_currentTimeOnNtpTick: 0
+  m_differencePcNtpTick: 0
+  m_differencePcNtpMilliseconds: 0
+  currentDateTimeUtcUseSummer: 0
+  currentDateTimeUtcNTPUseSummer: 0
 --- !u!114 &2854435118295289280
 MonoBehaviour:
   m_ObjectHideFlags: 0
