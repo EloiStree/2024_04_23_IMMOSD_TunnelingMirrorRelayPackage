@@ -3,7 +3,8 @@
     "rootNamespace": "",
     "references": [
         "Mirror",
-        "be.eloistree.generatestorersakey"
+        "be.eloistree.generatestorersakey",
+        "Mirror.Examples"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

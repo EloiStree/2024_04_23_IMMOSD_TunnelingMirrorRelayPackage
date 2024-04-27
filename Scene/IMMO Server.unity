@@ -1099,6 +1099,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fa6f68965fc0949ab1785d3c6a901e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  m_onGuestKickOut:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onWarningKickOut:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onTemporalBan:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onPermaBan:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1054387683712408742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1410,6 +1425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ntpServer
       value: 0.be.pool.ntp.org
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562470613172205990, guid: 6ae52ecf91874c844b73309150e7302d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9058508966216854014, guid: 6ae52ecf91874c844b73309150e7302d,
         type: 3}
