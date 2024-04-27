@@ -25,12 +25,12 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
 
 
     [ClientRpc]
-    public void RtcRemoveScript()
+    public void RpcRemoveScript()
     {
         Destroy(this);
     }
     [ClientRpc]
-    public void RtcNotifyAsServer()
+    public void RpcNotifyAsServer()
     {
         m_hostInstance = this;
     }
@@ -42,11 +42,11 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
         {
 
             m_hostInstance = this;
-            RtcNotifyAsServer();
+            RpcNotifyAsServer();
         }
         else {
-            RtcRemoveScript();
-  //          Destroy(this);
+            RpcRemoveScript();
+           // Destroy(this);
         }
        
     }
