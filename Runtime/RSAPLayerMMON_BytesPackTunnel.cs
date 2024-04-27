@@ -25,7 +25,7 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
 
     public override void OnStartServer()
     {
-        m_isTheHost = this.isLocalPlayer && base.isServer && base.isOwned;
+        m_isTheHost = base.isServer ;
         if (m_isTheHost)
         {
             m_hostInstance = this;
@@ -33,7 +33,7 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
     }
     public override void OnStartLocalPlayer()
     {
-        if (!base.isServer)
+        if (!base.isServer )
             Destroy(this);
       
     }
