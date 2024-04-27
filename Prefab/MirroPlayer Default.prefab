@@ -121,6 +121,7 @@ MonoBehaviour:
   m_server_guidSentAsByte: 
   m_server_b64SignedMessage: 
   m_isHandshakeEstablished: 0
+  m_claimIntegerAssociated: -2147483648
   m_onRsaHandshakeValidatedClientEvent:
     m_PersistentCalls:
       m_Calls: []

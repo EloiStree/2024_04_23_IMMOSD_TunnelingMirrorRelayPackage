@@ -6,10 +6,10 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
+public class RSAP_RSAHandshake : NetworkBehaviour
 {
-    static MirrorPlayerMono_RSAHandshake m_hostInstance;
-    public static MirrorPlayerMono_RSAHandshake GetHostInstance() { return m_hostInstance; }
+    static RSAP_RSAHandshake m_hostInstance;
+    public static RSAP_RSAHandshake GetHostInstance() { return m_hostInstance; }
 
     [SyncVar]
     public bool m_isTheHost;
@@ -35,10 +35,13 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
     public string m_server_guidSent;
     public byte[] m_server_guidSentAsByte;
     public string m_server_b64SignedMessage;
-    
+
 
     [SyncVar]
     public bool m_isHandshakeEstablished;
+
+    [SyncVar]
+    public int m_claimIntegerAssociated=int.MinValue;
 
     public UnityEvent m_onRsaHandshakeValidatedClientEvent;
     public UnityEvent m_onRsaHandshakeValidatedServerEvent;

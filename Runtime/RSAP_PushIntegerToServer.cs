@@ -12,13 +12,13 @@ public class RSAP_PushIntegerToServer : NetworkBehaviour
     void Awake()
     {
 
-        bool isLocalOrServer = this.isServer || isLocalPlayer;
-        if (!isLocalOrServer)
+        bool isLocalOrServer = this.isServer || this.isLocalPlayer;
+        if (isLocalOrServer)
         {
-            Destroy(this);
+            m_instance = this;
         }
         else { 
-            m_instance = this;
+            Destroy(this);
         }
     }
 

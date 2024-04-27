@@ -2,9 +2,9 @@
 
 public static class Dictionary_MirrorPlayerMono_RSAHandshake {
 
-    public static Dictionary<string, MirrorPlayerMono_RSAHandshake> m_mirrorPlayerValide = new Dictionary<string, MirrorPlayerMono_RSAHandshake>();
+    public static Dictionary<string, RSAP_RSAHandshake> m_mirrorPlayerValide = new Dictionary<string, RSAP_RSAHandshake>();
 
-    public static void Set(MirrorPlayerMono_RSAHandshake player) {
+    public static void Set(RSAP_RSAHandshake player) {
         if (player != null && player.IsPublicKeyValide()) {
 
             string key = player.GetPublicKey();
@@ -23,7 +23,7 @@ public static class Dictionary_MirrorPlayerMono_RSAHandshake {
 
         foreach (var item in m_mirrorPlayerValide.Keys)
         {
-            MirrorPlayerMono_RSAHandshake script = m_mirrorPlayerValide[item];
+            RSAP_RSAHandshake script = m_mirrorPlayerValide[item];
             if (script == null || !script.IsPublicKeyValide()) { 
                 m_mirrorPlayerValide.Remove(item);
             }
@@ -31,7 +31,7 @@ public static class Dictionary_MirrorPlayerMono_RSAHandshake {
     
     }
 
-    public static void Remove(MirrorPlayerMono_RSAHandshake handshake)
+    public static void Remove(RSAP_RSAHandshake handshake)
     {
         if (handshake == null)return;
         if (!handshake.IsPublicKeyValide()) return;
