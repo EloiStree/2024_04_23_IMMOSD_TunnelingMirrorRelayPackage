@@ -47,6 +47,8 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
         }
         else {
             RpcRemoveScript();
+
+            DestroyImmediate(this);
         }
        
     }
