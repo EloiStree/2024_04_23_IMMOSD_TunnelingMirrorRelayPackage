@@ -8,10 +8,15 @@ using UnityEngine.Events;
 
 public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
 {
+    static MirrorPlayerMono_RSAHandshake m_hostInstance;
+    public static MirrorPlayerMono_RSAHandshake GetHostInstance() { return m_hostInstance; }
 
+    [SyncVar]
+    public bool m_isTheHost;
 
     [SyncVar(hook = nameof(PlayerHandshakeStateChanged))]
     public byte m_handshakeState;
+
     public EnumMirrorRsaHankshakeServerSide m_handShakeAsEnum;
 
 
@@ -37,6 +42,15 @@ public class MirrorPlayerMono_RSAHandshake : NetworkBehaviour
 
     public UnityEvent m_onRsaHandshakeValidatedClientEvent;
     public UnityEvent m_onRsaHandshakeValidatedServerEvent;
+
+
+    private void Awake()
+    {
+        m_isTheHost = this.isLocalPlayer && base.isServer;
+        if (m_isTheHost) { 
+            m_hostInstance = this;
+        }
+    }
 
     public bool IsPublicKeyValide() { return m_handShakeAsEnum == EnumMirrorRsaHankshakeServerSide.HandshakeIsSignedAndValide; }
 

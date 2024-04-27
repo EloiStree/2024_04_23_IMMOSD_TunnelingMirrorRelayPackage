@@ -8,6 +8,8 @@ using UnityEngine;
 public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
 {
 
+    static RSAPLayerMMON_BytesPackTunnel m_hostInstance;
+    public static RSAPLayerMMON_BytesPackTunnel GetHostInstance() { return m_hostInstance; }
 
     public string   m_arrayName;
     public int      m_lastStartOffset;
@@ -17,8 +19,21 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
 
     public bool m_useRandomPush;
 
+  
+    [SyncVar]
+    public bool m_isTheHost;
+
+
     private void Awake()
     {
+        m_isTheHost = this.isLocalPlayer && base.isServer;
+        if (m_isTheHost)
+        {
+            m_hostInstance = this;
+        }
+        else {
+            Destroy(this);
+        }
         InvokeRepeating("PushRandom", 3, 5);
     }
     [ContextMenu("PushRandom")]
