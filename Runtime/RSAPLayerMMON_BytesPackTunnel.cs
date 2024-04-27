@@ -20,23 +20,29 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
     public bool m_useRandomPush;
 
   
-    [SyncVar]
+    [SyncVar(hook = nameof(SetAsHost))]
     public bool m_isTheHost;
+
+    public void SetAsHost(bool _, bool isHost) {
+        if (isHost)
+        {
+
+            m_hostInstance = this;
+        }
+        else
+        {
+            Destroy(this);
+
+        }
+    }
+
 
     public override void OnStartServer()
     {
-        m_isTheHost = base.isServer ;
-        if (m_isTheHost)
-        {
-            m_hostInstance = this;
-        }
+        m_isTheHost = base.isServer && base.isOwned && base.isClient ;
+       
     }
-    public override void OnStartLocalPlayer()
-    {
-        if (!base.isServer )
-            Destroy(this);
-      
-    }
+   
     private void Start()
     {
       
