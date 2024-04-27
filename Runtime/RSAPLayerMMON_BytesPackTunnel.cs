@@ -27,7 +27,8 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
     [ClientRpc]
     public void RpcRemoveScript()
     {
-        Destroy(this);
+        Debug.Log("call Destroy");
+        DestroyImmediate(this);
     }
     [ClientRpc]
     public void RpcNotifyAsServer()
@@ -46,11 +47,17 @@ public class RSAPLayerMMON_BytesPackTunnel : NetworkBehaviour
         }
         else {
             RpcRemoveScript();
-           // Destroy(this);
         }
        
     }
-   
+    public override void OnStartLocalPlayer()
+    {
+        if (!m_isTheHost) { 
+            Debug.Log("call DestroDyDDD");
+            DestroyImmediate(this);
+        }
+    }
+
     private void Start()
     {
       
