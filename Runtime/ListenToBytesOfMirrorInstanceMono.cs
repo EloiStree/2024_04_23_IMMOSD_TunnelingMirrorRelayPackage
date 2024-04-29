@@ -10,7 +10,8 @@ public class ListenToBytesOfMirrorInstanceMono : MonoBehaviour
 
     public delegate void ReceivedChunkDelegate(string arrayName, byte[] arrayChunkBytes);
     public ReceivedChunkDelegate m_onChunkDelegateReceived;
-    public UnityEvent<string, byte[]> m_onChunkEventReceived;
+    public UnityEvent<string, byte[]> m_onNamedChunkEventReceived;
+    public UnityEvent< byte[]> m_onChunkEventReceived;
 
     void Awake()
     {
@@ -32,7 +33,8 @@ public class ListenToBytesOfMirrorInstanceMono : MonoBehaviour
         m_arrayChunk = arrayChunkBytes;
         if (m_onChunkDelegateReceived != null)
             m_onChunkDelegateReceived.Invoke(arrayName, arrayChunkBytes);
-        m_onChunkEventReceived.Invoke(arrayName, arrayChunkBytes);
+        m_onNamedChunkEventReceived.Invoke(arrayName, arrayChunkBytes);
+        m_onChunkEventReceived.Invoke( arrayChunkBytes);
     }
 
 }
